@@ -1,0 +1,88 @@
+// Place all the styles related to the Zype controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#videoslist {
+  & > div {
+    position: relative;
+    a, .bg-gray {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      right: 15px;
+      width: calc(100% - 30px);
+      height: 100%;
+    }
+    a {
+      z-index: 1000;
+      font-size: 16px;
+      color: #ffffff;
+      opacity: 0;
+      text-decoration: none;
+      &:hover {
+        opacity: 1;
+        background-color: rgba(#000000, .6);
+      }
+    }
+    .bg-gray {
+      background-color: #000000;
+      z-index: 10;
+    }
+    img {
+      width: 100%;
+      z-index: 100;
+    }
+  }
+}
+
+ul.pagination {
+  li {
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+.detail-info {
+  position: relative;
+  padding: 20px;
+  background:#ffffff;
+  p {
+    word-wrap: break-word;
+    .btn_back {
+      position: absolute;
+      bottom: 15px;
+      right: 50px;
+      font-size: 18px;
+    }
+  }
+  &:before,
+  &:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 25px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    -webkit-box-shadow: 0 35px 20px #777;
+    -moz-box-shadow: 0 35px 20px #777;
+    box-shadow: 0 35px 20px #777;
+    -webkit-transform: rotate(-8deg);
+    -moz-transform: rotate(-8deg);
+    -o-transform: rotate(-8deg);
+    -ms-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+  }
+  &:after {
+    -webkit-transform: rotate(8deg);
+    -moz-transform: rotate(8deg);
+    -o-transform: rotate(8deg);
+    -ms-transform: rotate(8deg);
+    transform: rotate(8deg);
+    right: 10px;
+    left: auto;
+  }
+}

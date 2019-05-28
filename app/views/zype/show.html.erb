@@ -1,0 +1,18 @@
+<% if @video.blank? %>
+
+<p>There is not selected video currently in the Zype.</p>
+
+<% else %>
+
+<div id="zype_<%= @video["_id"] =%>"></div>
+<script src="https://player.zype.com/embed/<%= @video["_id"] =%>.js?autoplay=true&app_key=<%= ENV['ZYPE_APP_KEY'] =%>" type="text/javascript"></script>
+
+<div class="detail-info my-5">
+  <h3 class="title text-center"><%= @video["title"] =%></h1>
+  <p class="description my-4">
+    <%= @video["description"] =%>
+    <%= link_to 'Back', 'javascript:history.go(-1);', {:class => 'btn_back'} %>
+  </p>
+</div>
+
+<% end %>

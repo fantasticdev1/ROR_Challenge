@@ -1,0 +1,42 @@
+<% if @videos.blank? %>
+<p>There are not any videos currently in the Zype.</p>
+<% else %>
+<h1 class="text-center">Zype API TEST</p>
+
+<div id = "videoslist" class="row">
+   <% @videos.each do |c| %>
+   <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center my-2">
+      <%= link_to c['title'], {:action => 'show', :id => c['_id']}, {:class => 'd-flex align-items-center justify-content-center px-3'} =%>
+      <img src="<%= c['thumbnails'][0]['url'] =%>">
+      <div class="bg-gray"></div>
+   </div>
+   <% end %>
+</div>
+
+<% unless @pagination.blank? %>
+<div class="d-flex justify-content-center w-100 mt-5">
+   <ul class="pagination">
+      <li class="page-item">
+         <%= link_to 'First', {:action => 'loadlist', :page => 1}, {:class => 'page-link'} =%>
+      </li>
+      <% unless @pagination['previous'].nil? %>
+         <li class="page-item">
+            <%= link_to 'Prev', {:action => 'loadlist', :page => @pagination['previous']}, {:class => 'page-link'} =%>
+         </li>
+      <% end %>
+      <li class="page-item">
+         <%= link_to @pagination['current'], {:action => 'loadlist', :page => @pagination['current']}, {:class => 'page-link'} =%>
+      </li>
+      <% unless @pagination['next'].nil? %>
+         <li class="page-item">
+            <%= link_to 'Next', {:action => 'loadlist', :page => @pagination['next']}, {:class => 'page-link'} =%>
+         </li>
+      <% end %>
+      <li class="page-item">
+         <%= link_to 'Last', {:action => 'loadlist', :page => @pagination['pages']}, {:class => 'page-link'} =%>
+      </li>
+   </ul>
+<div>
+<% end %>
+
+<% end %>

@@ -1,0 +1,8 @@
+development:
+  URI: 'https://api.zype.com'
+  ZYPE_APP_KEY: 'Please add Zype App key here'
+  PER_PAGE: '12'
+production:
+  URI: 'https://api.zype.com'
+  ZYPE_APP_KEY: 'Please add Zype App key here'
+  PER_PAGE: '12'
